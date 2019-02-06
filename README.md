@@ -51,11 +51,11 @@ Open the `i2b2_config_data.js` file, and add the following properties to your do
 
 ### Configuring the shrine tomcat
  We are using two tomcats on the same box, one is for shrine components which is in `/opt/shrine/tomcat` and the other one for eureka components which is in `/opt/tomcat`.
- Update the following Connectors in the `/var/shrine/tomcat/conf/server.xml` file to avoid the conflict with other tomcat server.
-*  Update the `port:8080` connector to `<Connector port="8081" protocol="HTTP/1.1" 
+* Update the following Connectors in the `/var/shrine/tomcat/conf/server.xml` file to avoid the conflict with other tomcat server.
+  * Update the `port:8080` connector to `<Connector port="8081" protocol="HTTP/1.1" 
                connectionTimeout="20000" 
                redirectPort="6443" />` .
-* Comment or remove the `port:8443` connector.
-* Update the `port:8009` connector to `<Connector port="6009" protocol="AJP/1.3" redirectPort="6443" />` .
+  * Comment or remove the `port:8443` connector.
+  * Update the `port:8009` connector to `<Connector port="6009" protocol="AJP/1.3" redirectPort="6443" />` .
 * If you are using web server like Apache/httpd then please remove or comment the CATALINA_OPTS variable in the `/opt/shrine/tomcat/bin/setenv.sh` file.
 ## Licensing
